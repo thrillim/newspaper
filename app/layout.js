@@ -1,6 +1,6 @@
 import { Inter } from 'next/font/google';
 import './globals.css';
-
+import NavBar from "../components/NavBar";
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
@@ -32,32 +32,6 @@ export default function RootLayout({ children }) {
             <button className='btn btn-sm btn-primary normal-case	text-white'>
               Đăng nhập
             </button>
-          </div>
-        </div>
-        <div className='navbar bg-secondary'>
-          <div className='flex-1 gap-1'>
-            <div className="btn btn-sm btn-ghost">Trang chủ</div>
-            <div className="btn btn-sm btn-ghost">Thời sự</div>
-            <div className="btn btn-sm btn-ghost">Thế giới</div>
-            <div className="btn btn-sm btn-ghost">Kinh tế</div>
-            <div className="btn btn-sm btn-ghost">Thể thao</div>
-          </div>
-          <div className='dropdown dropdown-end'>
-            <div
-              tabIndex={0}
-              role='button'
-              className='btn m-1 btn-sm btn-primary normal-case text-white lg:hidden'
-            >
-              Tất cả chuyên mục
-            </div>
-            <ul className='dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52'>
-              <li>
-                <a>Item 1</a>
-              </li>
-              <li>
-                <a>Item 2</a>
-              </li>
-            </ul>
           </div>
         </div>
         {children}
