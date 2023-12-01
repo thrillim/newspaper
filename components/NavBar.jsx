@@ -8,6 +8,8 @@ const NavBar = (props) => {
     world: 'Thế giới',
     economy: 'Kinh tế',
     sport: 'Thể thao',
+    ent: "Giải trí",
+    science: "Khoa học"
   };
   return (
     <nav>
@@ -27,7 +29,7 @@ const NavBar = (props) => {
           <div
             tabIndex={0}
             role='button'
-            className='btn m-1 btn-sm btn-primary normal-case text-white lg:hidden'
+            className='btn m-1 btn-sm btn-primary normal-case text-white md:hidden'
           >
             Tất cả chuyên mục
           </div>
@@ -36,7 +38,7 @@ const NavBar = (props) => {
             if (index !== 0) {
               return (
                 <li key={couple[0]}>
-                  <a href={"/"+couple[0]} className="text-primary">{couple[1]}</a>
+                  <a href={couple[0]} className="text-primary">{couple[1]}</a>
                 </li>
               );
             }
