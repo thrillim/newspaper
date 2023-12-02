@@ -3,13 +3,14 @@ import NavButton from './NavButton';
 
 const NavBar = (props) => {
   const CATE = {
-    home: 'Trang chủ',
-    news: 'Thời sự',
+    top: 'Trang chủ',
+    technology: 'Công nghệ',
     world: 'Thế giới',
-    economy: 'Kinh tế',
-    sport: 'Thể thao',
-    ent: "Giải trí",
-    science: "Khoa học"
+    business: 'Kinh doanh',
+    sports: 'Thể thao',
+    entertainment: "Giải trí",
+    science: "Khoa học",
+    health: "Sức khoẻ"
   };
   return (
     <nav>

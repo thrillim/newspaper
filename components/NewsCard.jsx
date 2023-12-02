@@ -1,9 +1,9 @@
 const NewsCard = (props) => {
   return (
     <a href="/abcs" className="card card-compact w-full bg-base-100 shadow-xl">
-      <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
+      <figure className="h-1/2"><img src={props.article.image_url} alt="none" className="min-h-full min-w-full object-cover"/></figure>
       <div className="card-body">
-        <h2 className="card-title text-primary">Shoes! Each child in a list should have a unique "key" prop.</h2>
+        <h2 className="card-title text-primary">{props.article.title}</h2>
       </div>
     </a>
   )
