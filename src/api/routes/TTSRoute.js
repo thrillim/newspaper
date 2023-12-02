@@ -2,8 +2,8 @@ import { Router } from "express";
 import { textToSpeech } from "../controllers/TTSController";
 // import { checkToken } from "../middlewares/authMiddleware";
 
-const tssRoute = Router();
+const ttsRoute = Router();
 
-tssRoute.get("/", textToSpeech);
+ttsRoute.post("/", textToSpeech);
 
-export default tssRoute;
+export default ttsRoute;

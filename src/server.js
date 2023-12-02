@@ -1,5 +1,5 @@
 import express from "express";
-import tssRoute from "./api/routes/TTSRoute";
+import ttsRoute from "./api/routes/TTSRoute";
 import cors from "cors";
 
 import dotenv from "dotenv";
@@ -25,7 +25,7 @@ app.get("/", (req, res) => {
     res.json({ success: true, message: "Welcome to express" }).status(200);
 });
 
-app.use("/tts", tssRoute);
+app.use("/tts", ttsRoute);
 app.use("/auth", authRoute);
 
 
