@@ -1,6 +1,6 @@
 import { Inter } from 'next/font/google';
 import './globals.css';
-import NavBar from "../components/NavBar";
+import NavBar from '../components/NavBar';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
@@ -14,9 +14,15 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <div className='navbar bg-base-100'>
           <div className='navbar-start'>
-            <a className='btn btn-ghost text-xl text-primary'>LOGO</a>
+            <a className='btn btn-ghost text-xl text-primary'>
+              <img
+                src='../../logo.png'
+                width='70px'
+                height='auto'
+              />
+            </a>
           </div>
-          <div className="navbar-center">
+          <div className='navbar-center'>
             <div className='form-control'>
               <input
                 type='text'
