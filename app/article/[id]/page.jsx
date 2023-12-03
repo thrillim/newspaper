@@ -84,8 +84,43 @@ const ArticlePage = ({ params }) => {
     },
   ];
 
+  // const [audio, setAudio] = useState(null);
+
+  // useEffect(() => {
+  //   const fetchAudio = async () => {
+  //     console.log(article.content)
+  //     try {
+  //       const response = await fetch(`http://localhost:3002/tts`, {
+  //         method: "POST",
+  //         body: article.content,
+  //       });
+  //       const data = await response.json();
+  //       console.log(data.url)
+  //       setAudio(data.url);
+  //     } catch (error) {
+  //       console.error('Error fetching audio:', error);
+  //     }
+  //   };
+  //   fetchAudio();
+  // }, []);
+
+  const sentences = article.content.split('. ');
+  const paragraphs = [];
+  for (let i = 0; i < sentences.length; i += 3) {
+    const paragraphSentences = sentences.slice(i, i + 3);
+    const paragraph = (
+      <p>
+        {paragraphSentences.map((sentence) => (
+          <>{sentence}. </>
+        ))}
+      </p>
+    );
+    paragraphs.push(paragraph);
+  }
+  console.log(paragraphs);
+
   return (
-    <div className='bg-base-100 w-screen'>
+    <div className='bg-base-100 w-screen text-primary'>
       <div id='nav'>
         <NavBar cate={article.category[0]} />
         <div className='text-sm breadcrumbs p-10 pt-5'>
@@ -113,7 +148,7 @@ const ArticlePage = ({ params }) => {
                 alt='none'
                 className='w-full md:w-1/2 md:mx-auto pb-5'
               />
-              <p style={{ fontSize: textSize }}>{article.content}</p>
+              <div style={{ fontSize: textSize }}>{paragraphs}</div>
             </div>
           </div>
           <div
@@ -125,12 +160,7 @@ const ArticlePage = ({ params }) => {
             </div>
             <form className='my-6'>
               <div className='py-2 px-4 mb-4 bg-base-100 border border-primary '>
-                <label
-                  for='comment'
-                  class='sr-only'
-                >
-                Bình luận của bạn
-                </label>
+                <label>Bình luận của bạn</label>
                 <textarea
                   id='comment'
                   rows='2'
