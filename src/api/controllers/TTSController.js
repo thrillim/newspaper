@@ -10,10 +10,20 @@ export const textToSpeech = async (req, res) => {
 
     // API endpoint của Zalo text to speech
     const apiUrl = "https://api.zalo.ai/v1/tts/synthesize";
+    
+    const apiKeys = [
+      "T8AHTIctjHRuOuAAqc36lFW9Se2mSLXT", 
+      "aHPk3GYQw3tI1sSW6MKifqcJl1QJ2C9n"
+    ]
+    function getRandomApiKey() {
+      const randomIndex = Math.floor(Math.random() * apiKeys.length);
+      return apiKeys[randomIndex];
+    } 
+    const randomApiKey = getRandomApiKey();
 
     // Headers
     const headers = {
-      "apikey": "aHPk3GYQw3tI1sSW6MKifqcJl1QJ2C9n",
+      "apikey": randomApiKey,
       "Content-Type": "application/x-www-form-urlencoded",
     };
 

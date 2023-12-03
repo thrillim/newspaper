@@ -5,6 +5,9 @@ import cors from "cors";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import authRoute from "./api/routes/AuthRoute";
+import cmtRoute from "./api/routes/CmtRoute";
+import newsRoute from "./api/routes/NewsRoute";
+import bookmarkRoute from "./api/routes/BookmarkRoute";
 
 dotenv.config();
 const app = express();
@@ -27,6 +30,9 @@ app.get("/", (req, res) => {
 
 app.use("/tts", ttsRoute);
 app.use("/auth", authRoute);
+app.use("/comment", cmtRoute);
+app.use("/news", newsRoute);
+app.use("/bookmark", bookmarkRoute);
 
 
 app.listen(PORT, () => {
