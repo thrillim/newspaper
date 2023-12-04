@@ -1,11 +1,12 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import NavBar from '../../../components/NavBar';
+import Speaker from '../../../components/Speaker';
+
 import {
   IconName,
   HiOutlinePlusSm,
   HiOutlineMinusSm,
-  HiSpeakerphone,
   HiBookmark,
 } from 'react-icons/hi';
 
@@ -70,10 +71,6 @@ const ArticlePage = ({ params }) => {
   //   fetchArticle();
   // }, [articleId]);
 
-  if (!article) {
-    return <div>Loading...</div>;
-  }
-
   const comments = [
     {
       id: '656adecd3f64ce73218a084e',
@@ -84,40 +81,21 @@ const ArticlePage = ({ params }) => {
     },
   ];
 
-  // const [audio, setAudio] = useState(null);
-
-  // useEffect(() => {
-  //   const fetchAudio = async () => {
-  //     console.log(article.content)
-  //     try {
-  //       const response = await fetch(`http://localhost:3002/tts`, {
-  //         method: "POST",
-  //         body: article.content,
-  //       });
-  //       const data = await response.json();
-  //       console.log(data.url)
-  //       setAudio(data.url);
-  //     } catch (error) {
-  //       console.error('Error fetching audio:', error);
-  //     }
-  //   };
-  //   fetchAudio();
-  // }, []);
-
   const sentences = article.content.split('. ');
   const paragraphs = [];
   for (let i = 0; i < sentences.length; i += 3) {
     const paragraphSentences = sentences.slice(i, i + 3);
+    // console.log(paragraphSentences);
+    const temp = paragraphSentences.join(". ")
+    // console.log(temp)
     const paragraph = (
-      <p>
-        {paragraphSentences.map((sentence) => (
-          <>{sentence}. </>
-        ))}
-      </p>
+      <div className='py-2'>
+        {temp}.
+        <Speaker content={temp} />
+      </div>
     );
     paragraphs.push(paragraph);
   }
-  console.log(paragraphs);
 
   return (
     <div className='bg-base-100 w-screen text-primary'>
@@ -160,7 +138,6 @@ const ArticlePage = ({ params }) => {
             </div>
             <form className='my-6'>
               <div className='py-2 px-4 mb-4 bg-base-100 border border-primary '>
-                <label>Bình luận của bạn</label>
                 <textarea
                   id='comment'
                   rows='2'
@@ -194,9 +171,6 @@ const ArticlePage = ({ params }) => {
               className='text-4xl text-primary bg-base-100 rounded-full w-10 h-10 m-2 pt-0.5 pl-0.5'
             >
               <HiOutlinePlusSm />
-            </button>
-            <button className='text-3xl text-primary bg-base-100 rounded-full w-10 h-10 m-2 pt-1 pl-0.5'>
-              <HiSpeakerphone />
             </button>
             <button className='text-3xl text-primary bg-base-100 rounded-full w-10 h-10 m-2 pt-1 pl-1'>
               <HiBookmark />
