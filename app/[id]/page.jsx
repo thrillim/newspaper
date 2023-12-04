@@ -10,7 +10,7 @@ const HomePage = ({ params }) => {
   useEffect(() => {
     const fetchArticles = async () => {
       // fetch(`https://newsdata.io/api/1/news?apikey=pub_32853489b697cf2bea5dbc515b878139235d7&country=vi&category=${params.id}`)
-      fetch(`http://localhost:3002/news?category=${params.id}`)
+      fetch(`http://localhost:3002/news/search?category=${params.id}`)
         .then((response) => {
           if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
@@ -20,9 +20,9 @@ const HomePage = ({ params }) => {
           return response.json();
         })
         .then((data) => {
-          console.log(data);
+          // console.log(data);
           // Filter out articles without images
-          const filteredArticles = data.filter(
+          const filteredArticles = data.result.filter(
             (article) => article.image_url !== null
           );
           // Use the filtered data
@@ -36,7 +36,9 @@ const HomePage = ({ params }) => {
     fetchArticles();
   }, []);
 
-  return (
+  return !articles.length ? (
+    <div className='bg-base-100 text-center pt-10'>Loading...</div>
+  ) : (
     <div className='newspaper-page bg-base-100'>
       <div className='p-5 gap-6 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
         {articles.map((article) => (
