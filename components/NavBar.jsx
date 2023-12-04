@@ -26,7 +26,7 @@ const NavBar = (props) => {
             );
           })}
         </div>
-        <div className='dropdown dropdown-end'>
+        {/* <div className='dropdown dropdown-end'>
           <div
             tabIndex={0}
             role='button'
@@ -45,7 +45,7 @@ const NavBar = (props) => {
             }
           })}
           </ul>
-        </div>
+        </div> */}
       </div>
     </nav>
   );
