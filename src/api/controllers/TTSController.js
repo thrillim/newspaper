@@ -13,7 +13,9 @@ export const textToSpeech = async (req, res) => {
     
     const apiKeys = [
       "T8AHTIctjHRuOuAAqc36lFW9Se2mSLXT", 
-      "aHPk3GYQw3tI1sSW6MKifqcJl1QJ2C9n"
+      "aHPk3GYQw3tI1sSW6MKifqcJl1QJ2C9n",
+      "BaK9dcETXC5J7AhwF7JzPip0O5DwZqgx",
+      "IJfdMcad2KBM7xnLA7eZnnXKPCVrBT6V"
     ]
     function getRandomApiKey() {
       const randomIndex = Math.floor(Math.random() * apiKeys.length);
