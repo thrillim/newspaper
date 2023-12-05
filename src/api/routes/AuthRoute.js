@@ -9,7 +9,7 @@ authRoute.post("/login", login);
 
 authRoute.post("/register", register);
 
-authRoute.get("/getUser", checkToken, getUser);
+authRoute.post("/getUser", checkToken, getUser);
 
 
 export default authRoute;
